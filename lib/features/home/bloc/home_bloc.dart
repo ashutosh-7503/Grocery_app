@@ -24,7 +24,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     HomeInitialEvent event,
     Emitter<HomeState> emit,
   ) async {
-    print('working');
+    // print('working');
     emit(HomeLoadingState());
     await Future.delayed(Duration(seconds: 3));
     emit(
@@ -49,7 +49,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     HomeCartButtonNavigateEvent event,
     Emitter<HomeState> emit,
   ) {
-    print('cart');
+    // print('cart');
     emit(HomeNavigateToCartPageActionState());
   }
 

@@ -23,7 +23,7 @@ class ProductTileWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
+          SizedBox(
             height: 200,
             width: double.maxFinite,
             child: Image.network(productDataModel.imageUrl, fit: BoxFit.cover),
@@ -39,7 +39,7 @@ class ProductTileWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "\$ " + productDataModel.price.toString(),
+                "\$ ${productDataModel.price}",
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
               Row(

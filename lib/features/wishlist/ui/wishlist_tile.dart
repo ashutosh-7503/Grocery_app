@@ -1,20 +1,23 @@
+// import 'dart:nativewrappers/_internal/vm/lib/math_patch.dart';
+
 import 'package:flutter/material.dart';
-import 'package:grocery_app/features/cart/bloc/cart_bloc.dart';
+// import 'package:grocery_app/features/wishlist/bloc/wishlist_bloc.dart';
 // import 'package:grocery_app/features/home/bloc/home_bloc.dart';
 import 'package:grocery_app/features/home/models/data_model.dart';
+import 'package:grocery_app/features/wishlist/bloc/wishlist_bloc.dart';
 
-class CartTileWidget extends StatelessWidget {
+class WishlistTileWidget extends StatelessWidget {
   final ProductDataModel productDataModel;
-  final CartBloc cartBloc;
+  final WishlistBloc wishlistBloc;
 
-  const CartTileWidget({
+  const WishlistTileWidget({
     super.key,
     required this.productDataModel,
-    required this.cartBloc,
+    required this.wishlistBloc,
   });
-
   @override
   Widget build(BuildContext context) {
+    // log(45);
     return Container(
       margin: const EdgeInsets.all(10),
       padding: const EdgeInsets.all(10),
@@ -48,21 +51,19 @@ class CartTileWidget extends StatelessWidget {
                 children: [
                   IconButton(
                     onPressed: () {
-                      // cartBloc.add(HomeProductWishlistButtonClickedEvent(
-                      //   clickedProduct: productDataModel
-                      // ));
+                      wishlistBloc.add(
+                        WishlistRemoveFromWishlist(
+                          itemToBeRemoved: productDataModel,
+                        ),
+                      );
                     },
-                    icon: Icon(Icons.favorite_border_outlined),
+                    icon: Icon(Icons.favorite),
                   ),
                   Tooltip(
-                    message: 'Remove from cart',
+                    message: 'Remove from wishlist',
                     child: IconButton(
-                      onPressed: () {
-                        cartBloc.add(
-                          CartRemoveFromCart(itemToBeRemoved: productDataModel),
-                        );
-                      },
-                      icon: Icon(Icons.shopping_bag),
+                      onPressed: () {},
+                      icon: Icon(Icons.shopping_bag_outlined),
                     ),
                   ),
                 ],
